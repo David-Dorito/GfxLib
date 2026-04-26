@@ -17,7 +17,7 @@ typedef struct GfxLib_Transport {
 } GfxLib_Transport;
 
 typedef struct GfxLib_Handle {
-	void*			  pDisplayHandle;
+	void*			  pDisplay;
 	GfxLib_Transport* pTransport;
 } GfxLib_Handle;
 

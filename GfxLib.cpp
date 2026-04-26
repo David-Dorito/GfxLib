@@ -2,7 +2,7 @@
 #include "GfxLib.h"
 
 GfxLib::GfxLib(Config config) {
-	this->handle.pDisplayHandle = config.pDisplayHandle;
+	this->handle.pDisplay = config.pDisplay;
 	this->handle.pTransport = config.pTransport;
 }
 

@@ -2,7 +2,6 @@
 #define GFXLIB_HPP_
 
 extern "C" {
-#include <cstdint>
 #include "GfxLib.h"
 }
 
@@ -14,7 +13,7 @@ class GfxLib {
 	using Handle = GfxLib_Handle;
 
 	struct Config {
-		void*	   pDisplayHandle;
+		void*	   pDisplay;
 		Transport* pTransport;
 	};
 
