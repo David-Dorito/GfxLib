@@ -6,50 +6,58 @@ GfxLib::GfxLib(Config config) {
 	this->handle.Drivers = config.Drivers;
 }
 
-void GfxLib::DrawChar(Vector2 pos, uint32_t color, Font* font, char character) {
-	GfxLib_DrawChar(&this->handle, pos, color, font, character);
+void GfxLib::DrawChar(FontChar fontChar, uint32_t color) {
+	GfxLib_DrawChar(&this->handle, fontChar, color);
 }
 
-void GfxLib::DrawString(Vector2 pos, uint32_t color, Font* font, char* string) {
-	GfxLib_DrawString(&this->handle, pos, color, font, string);
+void GfxLib::DrawString(FontString fontString, uint32_t color) {
+	GfxLib_DrawString(&this->handle, fontString, color);
 }
 
-void GfxLib::DrawLine(Vector2 p1, Vector2 p2, uint32_t color) {
-	GfxLib_DrawLine(&this->handle, p1, p2, color);
+void GfxLib::DrawLine(Line line, uint32_t color) {
+	GfxLib_DrawLine(&this->handle, line, color);
 }
 
-void GfxLib::DrawTriang(Vector2 p1, Vector2 p2, Vector2 p3, uint32_t color) {
-	GfxLib_DrawTriang(&this->handle, p1, p2, p3, color);
+void GfxLib::DrawTriang(Triang triangle, uint32_t color) {
+	GfxLib_DrawTriang(&this->handle, triangle, color);
 }
 
-void GfxLib::DrawRect(Vector2 p1, Vector2 p2, uint32_t color) {
-	GfxLib_DrawRect(&this->handle, p1, p2, color);
+void GfxLib::DrawRect(Rect rectangle, uint32_t color) {
+	GfxLib_DrawRect(&this->handle, rectangle, color);
 }
 
-void GfxLib::DrawCircle(Vector2 pos, uint32_t color, uint16_t radius) {
-	GfxLib_DrawCircle(&this->handle, pos, color, radius);
+void GfxLib::DrawRectFromPoints(Point p1, Point p2, uint32_t color) {
+	GfxLib_DrawRectFromPoints(&this->handle, p1, p2, color);
 }
 
-void GfxLib::DrawChar(void* self, Vector2 pos, uint32_t color, Font* font, char character) {
-	GfxLib_DrawChar(&static_cast<GfxLib*>(self)->handle, pos, color, font, character);
+void GfxLib::DrawCirc(Circ circle, uint32_t color) {
+	GfxLib_DrawCirc(&this->handle, circle, color);
 }
 
-void GfxLib::DrawString(void* self, Vector2 pos, uint32_t color, Font* font, char* string) {
-	GfxLib_DrawString(&static_cast<GfxLib*>(self)->handle, pos, color, font, string);
+void GfxLib::DrawChar(void* self, FontChar fontChar, uint32_t color) {
+	GfxLib_DrawChar(&static_cast<GfxLib*>(self)->handle, fontChar, color);
 }
 
-void GfxLib::DrawLine(void* self, Vector2 p1, Vector2 p2, uint32_t color) {
-	GfxLib_DrawLine(&static_cast<GfxLib*>(self)->handle, p1, p2, color);
+void GfxLib::DrawString(void* self, FontString fontString, uint32_t color) {
+	GfxLib_DrawString(&static_cast<GfxLib*>(self)->handle, fontString, color);
 }
 
-void GfxLib::DrawTriang(void* self, Vector2 p1, Vector2 p2, Vector2 p3, uint32_t color) {
-	GfxLib_DrawTriang(&static_cast<GfxLib*>(self)->handle, p1, p2, p3, color);
+void GfxLib::DrawLine(void* self, Line line, uint32_t color) {
+	GfxLib_DrawLine(&static_cast<GfxLib*>(self)->handle, line, color);
 }
 
-void GfxLib::DrawRect(void* self, Vector2 p1, Vector2 p2, uint32_t color) {
-	GfxLib_DrawRect(&static_cast<GfxLib*>(self)->handle, p1, p2, color);
+void GfxLib::DrawTriang(void* self, Triang triangle, uint32_t color) {
+	GfxLib_DrawTriang(&static_cast<GfxLib*>(self)->handle, triangle, color);
 }
 
-void GfxLib::DrawCircle(void* self, Vector2 pos, uint32_t color, uint16_t radius) {
-	GfxLib_DrawCircle(&static_cast<GfxLib*>(self)->handle, pos, color, radius);
+void GfxLib::DrawRect(void* self, Rect rectangle, uint32_t color) {
+	GfxLib_DrawRect(&static_cast<GfxLib*>(self)->handle, rectangle, color);
+}
+
+void GfxLib::DrawRectFromPoints(void* self, Point p1, Point p2, uint32_t color) {
+	GfxLib_DrawRectFromPoints(&static_cast<GfxLib*>(self)->handle, p1, p2, color);
+}
+
+void GfxLib::DrawCirc(void* self, Circ circle, uint32_t color) {
+	GfxLib_DrawCirc(&static_cast<GfxLib*>(self)->handle, circle, color);
 }
