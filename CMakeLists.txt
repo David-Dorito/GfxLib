@@ -1,12 +1,41 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 4.3.0)
 
-project(GfxLib C CXX)
+project(gfxlib LANGUAGES C)
 
-add_library(${PROJECT_NAME}
+option(GFXLIB_CXX_ENABLED "Enable the C++ wrapper for GfxLib" "OFF")
+
+add_library(${PROJECT_NAME})
+
+target_compile_features(${PROJECT_NAME}
+PRIVATE
+	c_std_99
+)
+
+target_sources(${PROJECT_NAME}
+PRIVATE
 	GfxLib.c
-	GfxLib.cpp
+
+PUBLIC
+	FILE_SET HEADERS
+	FILES
+		GfxLib.h
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC
-	${CMAKE_CURRENT_SOURCE_DIR}/
-)
+if(GFXLIB_CXX_ENABLED)
+	enable_language(CXX)
+
+	target_compile_features(${PROJECT_NAME}
+	PRIVATE
+		cxx_std_17
+	)
+
+	target_sources(${PROJECT_NAME}
+	PRIVATE
+		GfxLib.cpp
+
+	PUBLIC
+		FILE_SET HEADERS
+		FILES
+			GfxLib.hpp
+	)
+endif()

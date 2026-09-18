@@ -1,9 +1,8 @@
 #include "GfxLib.hpp"
 #include "GfxLib.h"
 
-GfxLib::GfxLib(Config config) {
-	this->handle.Display = config.Display;
-	this->handle.Drivers = config.Drivers;
+GfxLib::GfxLib(Handle handle) {
+	this->handle = handle;
 }
 
 void GfxLib::DrawChar(FontChar fontChar, uint32_t color) {

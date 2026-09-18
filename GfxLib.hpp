@@ -19,12 +19,7 @@ class GfxLib {
 	using Rect = GfxLib_Rect;
 	using Circ = GfxLib_Circ;
 
-	struct Config {
-		void*			Display;
-		DisplayDrivers* Drivers;
-	};
-
-	GfxLib(Config config);
+	GfxLib(Handle handle);
 
 	void DrawChar(FontChar fontChar, uint32_t color);
 	void DrawString(FontString fontString, uint32_t color);
